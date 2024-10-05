@@ -6,6 +6,6 @@ class Solution {
         }
         Arrays.sort(arr, (a,b) -> (b+a).compareTo(a+b));
         String result = String.join("", arr);
-        return result.charAt(0) == '0' ? "0" : result;
+        return result.startsWith("0") ? "0" : result;
     }
 }
