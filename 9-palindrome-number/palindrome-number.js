@@ -9,7 +9,7 @@ var isPalindrome = function(x) {
     var i = x;
     while(i > 0){
         result = (result * 10) + i % 10;
-        i = parseInt(i / 10);
+        i = Math.floor(i / 10); //instead of parseInt(i / 10)
     }
     return x == result;
 };
