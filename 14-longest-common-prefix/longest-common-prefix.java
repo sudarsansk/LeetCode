@@ -1,19 +1,28 @@
 class Solution {
     public String longestCommonPrefix(String[] strs) {
-       // strs = new String[]{"cir", "car"};
-        String first = strs[0];
-        int minimum = strs[0].length();
-        for(int i=1; i < strs.length; i++){
-            int j = 0;
-            for(int k=0; k < strs[i].length(); k++){
-                if(k < first.length() && first.charAt(k) == strs[i].charAt(k)){
-                    j++;
-                } else {
-                    break;
-                }
-            }
-            minimum = Math.min(minimum, j);
+       if (strs == null || strs.length == 0) {
+        return "";
+       }
+         // Use the first string as reference
+    String first = strs[0];
+    int maxCommonLength = first.length();
+    
+    for (int i = 1; i < strs.length; i++) {
+        String current = strs[i];
+        int j = 0;
+        
+        while (j < maxCommonLength && j < current.length() 
+               && first.charAt(j) == current.charAt(j)) {
+            j++;
         }
-        return first.substring(0, minimum);
+        
+        // Update the maximum common length
+        maxCommonLength = Math.min(maxCommonLength, j);
+        
+        if (maxCommonLength == 0) {
+            return "";
+        }
+    }
+    return first.substring(0, maxCommonLength);
     }
 }
