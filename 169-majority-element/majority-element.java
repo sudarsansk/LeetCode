@@ -1,9 +1,14 @@
 class Solution {
     public int majorityElement(int[] nums) {
         Map<Integer, Integer> result = new HashMap<>();
+        int majorityThreshold = nums.length / 2;
         for(int num : nums){
             int count = result.getOrDefault(num, 0) + 1;
             result.put(num, count);
+            // Early return when majority found
+            if (count > majorityThreshold) {
+                return num;
+            }
         }
 
         Optional<Integer> output = result.entrySet().stream()
