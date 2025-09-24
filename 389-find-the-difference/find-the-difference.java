@@ -2,11 +2,22 @@ class Solution {
     public char findTheDifference(String s, String t) {
         char result = 0;
 
+        for(char c : s.toCharArray()){
+            result ^= c;
+        }
+
+        for(char c : t.toCharArray()){
+            result ^= c;
+        }
+
+        return result;
+
+    /*
+    
         Map<Character, Integer> s_map = new HashMap<>();
         Map<Character, Integer> t_map = new HashMap<>();
 
         for(char c : s.toCharArray()){
-            result ^= c;
             s_map.put(c, s_map.getOrDefault(c, 0) + 1);
         }
 
@@ -21,5 +32,6 @@ class Solution {
             
         }
         return ' ';
+    */
     }
 }
