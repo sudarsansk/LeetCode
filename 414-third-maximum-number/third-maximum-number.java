@@ -23,7 +23,6 @@ class Solution {
             }
         }
         
-        // If third maximum doesn't exist, return first maximum
         if (third == Long.MIN_VALUE) {
             return (int) first;
         }
